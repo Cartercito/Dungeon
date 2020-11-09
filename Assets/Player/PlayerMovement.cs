@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed = 4;
+    public float sprintSpeed = 6;
     private Rigidbody2D rigid;
 
     // Start is called before the first frame update
@@ -20,19 +21,29 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newVelocity = new Vector3();
         if (Input.GetKey(KeyCode.S))
         {
-            newVelocity.y -= speed;
+            newVelocity.y -= 1;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            newVelocity.y += speed;
+            newVelocity.y += 1;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            newVelocity.x -= speed;
+            newVelocity.x -= 1;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            newVelocity.x += speed;
+            newVelocity.x += 1;
+        }
+        //Make unit vector
+        newVelocity = newVelocity.normalized;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            newVelocity *= sprintSpeed;
+        }
+        else
+        {
+            newVelocity *= speed;
         }
         rigid.velocity = newVelocity;
     }
