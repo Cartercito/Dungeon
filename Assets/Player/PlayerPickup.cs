@@ -7,13 +7,16 @@ public class PlayerPickup : MonoBehaviour
     public SpriteRenderer linkSprite = null;
     public Sprite linkHoldSprite = null;
     public GameObject potPosition = null;
+    public GameObject PackagePosition = null;
     private Pickupable closestItem = null;
-    private bool isHolding = false;
+    public bool isHolding = false;
+    private PlayerMovement pMove;
     private Sprite linkDefaultSprite = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        pMove = GetComponent<PlayerMovement>();
         linkDefaultSprite = linkSprite.sprite;
     }
 
@@ -65,10 +68,18 @@ public class PlayerPickup : MonoBehaviour
             else
             {
                 //Remove parent
-                closestItem.transform.SetParent(null);
+                closestItem.transform.position = PackagePosition.transform.position;
                 isHolding = false;
-                closestItem = null;
                 linkSprite.sprite = linkDefaultSprite;
+                if (pMove.isFacingRight == false)
+                {
+                    Vector3 newPosition = new Vector3();
+                    newPosition = closestItem.transform.localPosition;
+                    newPosition.x *= -1;
+                    closestItem.transform.localPosition = newPosition;
+                }
+                closestItem.transform.SetParent(null); 
+                closestItem = null;
             }
         }
     }
