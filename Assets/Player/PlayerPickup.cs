@@ -17,7 +17,7 @@ public class PlayerPickup : MonoBehaviour
         linkDefaultSprite = linkSprite.sprite;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //If holding, skip code
         if (isHolding)
