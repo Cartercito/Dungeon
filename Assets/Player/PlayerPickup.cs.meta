@@ -3,7 +3,11 @@ guid: 93407809dc2d00845a7c9835e0fd5d3d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerSprite: {instanceID: 0}
+  - player_pickupSprite: {fileID: 21300000, guid: 1629abffe6d228c40badf437a9a675e0,
+      type: 3}
+  - potPosition: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
