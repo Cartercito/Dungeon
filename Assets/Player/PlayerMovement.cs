@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public SpriteRenderer linkSprite = null;
+    public Sprite playerUpOne = null;
     public Sprite playerLeftOne = null;
     public Sprite playerRightOne = null;
     public Sprite playerIdle = null;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             newVelocity.y += 1;
+            movesprite = playerUpOne;
         }
         if (Input.GetKey(KeyCode.A))
         {

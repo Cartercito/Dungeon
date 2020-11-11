@@ -475,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkSprite: {fileID: 219844383}
+  playerUpOne: {fileID: 21300000, guid: 06159d73df8fda240bd62365c1419468, type: 3}
   playerLeftOne: {fileID: 21300000, guid: d005ebf58a5064f4391dfafb340d7403, type: 3}
   playerRightOne: {fileID: 21300000, guid: 9743c2e820c2ffe4a9836c485b079162, type: 3}
   playerIdle: {fileID: 21300000, guid: 025cf3f2703f9c74a81e1d03a36aa5df, type: 3}
