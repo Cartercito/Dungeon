@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    public SpriteRenderer linkSprite = null;
-    public Sprite linkHoldSprite = null;
+    public SpriteRenderer playerSprite = null;
+    public Sprite player_pickupSprite = null;
     public GameObject potPosition = null;
     private Pickupable closestItem = null;
     private bool isHolding = false;
-    private Sprite linkDefaultSprite = null;
+    private Sprite playerDefaultSprite = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        linkDefaultSprite = linkSprite.sprite;
+        playerDefaultSprite = playerSprite.sprite;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -59,7 +59,7 @@ public class PlayerPickup : MonoBehaviour
                     //Set pickup's parent as player
                     closestItem.transform.SetParent(this.transform);
                     isHolding = true;
-                    linkSprite.sprite = linkHoldSprite;
+                    playerSprite.sprite = player_pickupSprite;
                 }
             }
             else
@@ -68,7 +68,7 @@ public class PlayerPickup : MonoBehaviour
                 closestItem.transform.SetParent(null);
                 isHolding = false;
                 closestItem = null;
-                linkSprite.sprite = linkDefaultSprite;
+                playerSprite.sprite = playerDefaultSprite;
             }
         }
     }
